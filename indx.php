@@ -103,13 +103,13 @@
 .product-image {
 position: relative;
     width: 100%;
-    height: 600px;
+    height: 650px;
     overflow: hidden;
 }
 
 .product-image img {
 			width: 100%;
-			height: auto;
+			height: 100%;
 }
 
 .image-switcher {
@@ -184,25 +184,7 @@ imageSwitcher.addEventListener('click', (e) => {
   }
 });
 </script>
-
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $mobile = $_POST["mobile"];
-    $city = $_POST["city"];
-    $cityis = $_POST["cityis"];
-    $color = $_POST["color"];
-    $miny = $_POST["miny"];
-    $to = "medoapoali@gmail.com";
-    $subject = "New Order";
-    $message = "Name: " . $name . "\n" . "Mobile: " . $mobile . "\n" . "City: " . $city . "\n" . "Cityis: " . $cityis . "\n" . "Color: " . $color . "\n" . "Miny: " . $miny;
-    $headers = "From: medoapoali@gmail.com" . "\r\n" . "CC: medoapoali@gmail.com";
-    mail($to, $subject, $message, $headers);
-    header("Refresh:5");
-}
-?>
-
-<form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+    <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
     <input type="text" name="name" placeholder="الاسم" required>
     <input type="tel" name="mobile" placeholder="رقم لتواصل" required>
     <input type="text" name="city" placeholder="المدينه" required>
@@ -211,3 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="number" name="miny" placeholder="العدد" required>
     <input type="submit" name="submit" value="Order Now">
 </form>
+
+    <?php require('indx.php'); ?>
+  </body>
+</html>
